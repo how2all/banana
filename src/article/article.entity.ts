@@ -1,9 +1,14 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, Generated } from 'typeorm';
+// import { isUUID } from '@nestjs/common/utils/is-uuid';
 
 @Entity()
 export class Article {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn() // 主键
   id: number;
+
+  @Column()
+  @Generated(`uuid`)
+  uuid: string;
 
   @Column()
   firstName: string;
